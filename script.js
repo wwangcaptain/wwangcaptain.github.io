@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 为按钮添加点击事件监听器
     button.addEventListener('click', function() {
         // 定义点击后的操作
-        alert("欢迎联系我喵：Gmail: wangwang092105@gmail.com");
+        alert("有任何欢迎联系我们：E-mail: xxxxxxxxxxxxxx");
     });
 });
 //按钮：返回顶部
@@ -77,4 +77,48 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+});
+
+// 留言板功能
+document.addEventListener('DOMContentLoaded', function() {
+    var messageModal = document.getElementById('messageModal');
+    var addMessageBtn = document.getElementById('addMessageBtn');
+    var closeModal = document.getElementsByClassName('close')[0];
+    var messageForm = document.getElementById('messageForm');
+    var messagesDiv = document.querySelector('.messages');
+
+    // 打开模态框
+    addMessageBtn.onclick = function() {
+        messageModal.style.display = 'block';
+    };
+
+    // 关闭模态框
+    closeModal.onclick = function() {
+        messageModal.style.display = 'none';
+    };
+
+    // 点击模态框外部关闭模态框
+    window.onclick = function(event) {
+        if (event.target == messageModal) {
+            messageModal.style.display = 'none';
+        }
+    };
+
+    // 提交留言表单
+    messageForm.onsubmit = function(event) {
+        event.preventDefault();
+
+        var title = document.getElementById('messageTitle').value;
+        var content = document.getElementById('messageContent').value;
+
+        var messageDiv = document.createElement('div');
+        messageDiv.classList.add('card', 'message-card'); // 使用card和message-card样式
+        messageDiv.innerHTML = '<h3>' + title + '</h3><p>' + content + '</p>';
+
+        messagesDiv.appendChild(messageDiv);
+
+        // 清空表单并关闭模态框
+        messageForm.reset();
+        messageModal.style.display = 'none';
+    };
 });
