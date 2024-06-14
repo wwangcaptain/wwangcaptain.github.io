@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 为按钮添加点击事件监听器
     button.addEventListener('click', function() {
         // 定义点击后的操作
-        alert("有任何欢迎联系我们：E-mail: xxxxxxxxxxxxxx");
+        alert("有任何问题欢迎随时联系我们：E-mail: xxxxxxxxxxxxxx   电话：xxx xxxx xxxx");
     });
 });
 //按钮：返回顶部
